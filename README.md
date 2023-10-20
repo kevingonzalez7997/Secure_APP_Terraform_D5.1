@@ -12,7 +12,7 @@ This deployment leverages Terraform, an Infrastructure as Code (IaC) tool, to pr
 
 Terraform, an open-source IaC tool, simplifies infrastructure management with its declarative configuration language. It supports multiple cloud providers and enables efficient provisioning.
 
-In this deployment, Terraform creates the following [resources]():
+In this deployment, Terraform creates the following [resources](https://github.com/kevingonzalez7997/Secure_APP_Terraform_D5.1/blob/main/main.tf):
 
 - 1 Virtual Private Cloud (VPC)
 - 2 Availability Zones (AZs)
