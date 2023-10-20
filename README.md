@@ -82,7 +82,9 @@ To install, run the following:
 - `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status`
 
 ## Troubleshooting
-
+If there are connection issues with EC2:
+Although a default route table is created by Terraform it still has to be attached to the IGW. Be sure to include the following 
+-``
 ### Observations
 
 changes to the Jenkins file are required to ensure parallelism. When declaring which agent Jenkins should be used, be sure to include both agent names
