@@ -21,7 +21,7 @@ In this deployment, Terraform creates the following [resources](https://github.c
 - 1 Route Table
 - Security Group with open ports: 8080, 8000, and 22
 
-Additionally, Terraform's capabilities are used to install [Jenkins](https://github.com/kevingonzalez7997/Jenkins_install) during the EC2 creation process. The following command is included in the first EC2 resource block:
+Additionally, Terraform's capabilities are used to install [Jenkins](https://github.com/kevingonzalez7997/Jenkins_install/blob/main/Jenkins_Installer.sh) during the EC2 creation process. The following command is included in the first EC2 resource block:
 - `user_data = "${file("jenkins_install_script.sh")}"`
 
 ### 2. Generate a New Key Pair in AWS
