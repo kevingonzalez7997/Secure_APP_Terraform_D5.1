@@ -71,7 +71,7 @@ GitHub Is one of the most popular open-source repository platforms. The code wil
 ## Troubleshooting
 If there are connection issues with EC2:
 Although a default route table is created by Terraform it still has to be attached to the IGW. Be sure to include the following 
--`resource "aws_default_route_table" "route5_1" {
+- `resource "aws_default_route_table" "route5_1" {
   default_route_table_id = aws_vpc.d5-1_vpc.default_route_table_id
    route {
     cidr_block = "0.0.0.0/0"
@@ -92,6 +92,8 @@ While this version of the deployment was an improvement over the previous one, t
 
 Docker could significantly increase automation in the pipeline. In this version, each instance that handled the application had to have requirements manually installed beforehand, which is time-consuming and counterproductive. Docker can create an image with all the required dependencies to be run in a container.
 
+Given the nature of the application, a 3-tire application would further increase security and restrict access to data sensitive layers 
+
 ## Conclusion
 
-Improvements have been made to the current deployment version. This infrastructure includes a second instance to host the application, increasing resilience. If one instance crashes, users will still be able to access the application. In addition, we've used Jenkins' built-in function of nodes to increase security. 
+Improvements have been made to the current deployment version. This infrastructure includes a second instance to host the application, increasing resilience. If one instance crashes, users will still be able to access the application. In addition, we've used Jenkins' built-in function of nodes to increase security. Additional steps can be incorporated to further increase security. 
