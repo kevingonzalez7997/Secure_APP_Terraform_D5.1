@@ -68,23 +68,16 @@ GitHub Is one of the most popular open-source repository platforms. The code wil
 - Copy and import the Repository URL where the application source code resides.
 - Use your GitHub username and the generated key from GitHub as your credentials.
 
-### 7. Installing CloudWatch
-
-Minimizing downtime is crucial for a successful application. To optimize the application from the previous build, we've implemented a monitoring system. Since we're using AWS, we've utilized CloudWatch for native integration. It's also cost-efficient because you only pay for the services you need.
-
-To install, run the following:
-
-- `wget https://amazoncloudwatch-agent.s3.amazonaws.com/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb` to download the install package file.
-- `sudo dpkg -i -E ./amazon-cloudwatch-agent.deb` to run the install package.
-- `cd /opt/aws/amazon-cloudwatch-agent/bin/` to navigate to the app location.
-- `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard` to launch the setup wizard and configure it in greater detail.
-- `/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json` to launch the agent. You can check the status with:
-- `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status`
-
 ## Troubleshooting
 If there are connection issues with EC2:
 Although a default route table is created by Terraform it still has to be attached to the IGW. Be sure to include the following 
--``
+-`resource "aws_default_route_table" "route5_1" {
+  default_route_table_id = aws_vpc.d5-1_vpc.default_route_table_id
+   route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.gw.id
+  }
+}`
 ### Observations
 
 changes to the Jenkins file are required to ensure parallelism. When declaring which agent Jenkins should be used, be sure to include both agent names
