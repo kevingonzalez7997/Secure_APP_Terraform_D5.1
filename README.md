@@ -36,7 +36,7 @@ To launch two Jenkins agents for hosting the application, we'll use SSH.
 
 Git is a widely used distributed version control system (DVCS) for tracking changes in source code during software development. GitHub, a web-based platform, provides hosting for Git repositories and is one of the most popular platforms for version control and collaborative software development.
 
-In this deployment, [git](https://github.com/kevingonzalez7997/Git_Cloning) is used to create a second branch, allowing changes to be deployed in a staging environment. Once the changes are ready, they can be pushed to the Source Code Management (SCM), in this case, GitHub.
+In this deployment, [git](https://github.com/kevingonzalez7997/Git_Cloning) is used to create a second [branch](https://github.com/kevingonzalez7997/Secure_APP_Terraform_D5.1/blob/main/Images/Git_Multi_Branch.png), allowing changes to be deployed in a staging environment. Once the changes are ready, they can be pushed to the Source Code Management (SCM), in this case, GitHub.
 
 ### 4. Install Dependencies
 
@@ -56,7 +56,7 @@ Jenkins, an open-source automation server, is used for building, testing, and de
 - Select "Launch agent via SSH" (using the previously saved key).
 - The host will be the public IP of the agent instance (App_ec2_1/2).
 - Create credentials by entering the private key directly.
-- Save and check the log to verify agent status.
+- Save and check the [log](https://github.com/kevingonzalez7997/Secure_APP_Terraform_D5.1/blob/main/Images/Running_Agent.png) to verify agent status.
 - Create a second node with the same configuration; the only change should be the public IP.
 
 ## 6. Jenkins Pipeline
@@ -67,7 +67,7 @@ GitHub Is one of the most popular open-source repository platforms. The code wil
 - Configure Jenkins Credentials Provider as needed.
 - Copy and import the Repository URL where the application source code resides.
 - Use your GitHub username and the generated key from GitHub as your credentials.
-
+- Run [Build](https://github.com/kevingonzalez7997/Secure_APP_Terraform_D5.1/blob/main/Images/Jenkins_Sucess.png)
 ## Troubleshooting
 If there are connection issues with EC2:
 Although a default route table is created by Terraform it still has to be attached to the IGW. Be sure to include the following 
@@ -92,7 +92,7 @@ While this version of the deployment was an improvement over the previous one, t
 
 Docker could significantly increase automation in the pipeline. In this version, each instance that handled the application had to have requirements manually installed beforehand, which is time-consuming and counterproductive. Docker can create an image with all the required dependencies to be run in a container.
 
-Given the nature of the application, a 3-tire application would further increase security and restrict access to data sensitive layers 
+Given the nature of the application, a 3-tire application would further increase security and restrict access to data-sensitive layers 
 
 ## Conclusion
 
