@@ -88,7 +88,7 @@ You can make these changes to the Jenkins file in the second branch. When the ap
 
 ## Optimization
 
-While this version of the deployment was an improvement over the previous one, there are ways to further increase resilience and streamline the pipeline. Since two instances are hosting the application, they could be deployed in their own Availability Zones (AZs) to reduce single points of failure.
+While this version of the deployment improved over the previous one, there are ways to increase resilience further. It is still deploying a single-tier application. Each logical layer could have its own ec2 instance. In addition, a load balancer could be incorporated to distribute the traffic evenly and take advantage of new resources 
 
 Docker could significantly increase automation in the pipeline. In this version, each instance that handled the application had to have requirements manually installed beforehand, which is time-consuming and counterproductive. Docker can create an image with all the required dependencies to be run in a container.
 
