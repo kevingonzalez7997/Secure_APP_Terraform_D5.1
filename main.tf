@@ -65,8 +65,8 @@ resource "aws_security_group" "pub1_sercurity" {
 resource "aws_instance" "jenkins_ec2" {
   ami           = "ami-053b0d53c279acc90"
   instance_type = "t2.medium"
-  availability_zone = "us-east-1a" # Specify the desired availability zone
-  subnet_id = aws_subnet.public_1.id
+  availability_zone = "us-east-1b" # Specify the desired availability zone
+  subnet_id = aws_subnet.public_2.id
   vpc_security_group_ids = [aws_security_group.pub1_sercurity.id]
   key_name = "Deployment_5_1"
   user_data = "${file("jenkins_install.sh")}"
@@ -91,8 +91,8 @@ resource "aws_instance" "app_ec2_1" {
 resource "aws_instance" "app_ec2_2" {
   ami           = "ami-053b0d53c279acc90"
   instance_type = "t2.medium"
-  availability_zone = "us-east-1b" # Specify the desired availability zone
-  subnet_id = aws_subnet.public_2.id
+  availability_zone = "us-east-1a" # Specify the desired availability zone
+  subnet_id = aws_subnet.public_1.id
   vpc_security_group_ids = [aws_security_group.pub1_sercurity.id]
   key_name = "Deployment_5_1"
   tags = {
