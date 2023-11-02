@@ -7,6 +7,8 @@
 
 This deployment leverages Terraform, an Infrastructure as Code (IaC) tool, to provision the necessary infrastructure for hosting a banking application server. To streamline the process, Jenkins is integrated for automated building and testing, and Gunicorn is the application hosting server. Furthermore, we've used Jenkins node capabilities to launch instances simultaneously 
 
+![Deployment Diagram](Terraform_lb_D5_1.png)
+
 ## Deployment Steps
 
 ### 1. Provisioning Infrastructure Using Terraform
